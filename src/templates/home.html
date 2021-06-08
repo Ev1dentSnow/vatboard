@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+    <title>Flask Test</title>
+</head>
+<body>
+    {%if session.get('name', None) != None%}
+        <h1>Welcome to Flask Test, {{session['name']}}.</h1>
+    {%else%}
+        <h1>Welcome to Flask Test.</h1>
+    {%endif%}
+    <ul>
+        {%if session.get('vatsim_auth_res', None) == None%}
+            <li>
+                <a href='/login'>Login</a>
+            </li>
+        {%else%}
+            <li>
+                <a href='/profile'>Profile</a>
+            </li>
+            <li>
+                <a href='/logout'>Logout</a>
+            </li>
+        {%endif%}
+    </ul>
+</body>

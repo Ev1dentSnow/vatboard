@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Flask Test</title>
+</head>
+
+<body>
+    <h1>{{session.get('name', 'User')}}'s Profile:</h1>
+    <p>
+        <strong>Personal Info</strong><br />
+        Name: {{session.get('vatsim_data', None)['personal']['name_full']}}<br/>
+        CID: {{session.get('vatsim_data', None)['cid']}}<br />
+        Email: {{session.get('vatsim_data', None)['personal']['email']}}<br />
+        Country of Residence: {{session.get('vatsim_data', None)['personal']['country']['name']}} ({{session.get('vatsim_data', None)['personal']['country']['id']}})<br />
+        <br />
+        <strong>ATC/Regional Information</strong><br />
+        Rating: {{session.get('vatsim_data', None)['vatsim']['rating']['long']}} ({{session.get('vatsim_data', None)['vatsim']['rating']['short']}})<br />
+        Region: {{session.get('vatsim_data', None)['vatsim']['region']['name']}} ({{session.get('vatsim_data', None)['vatsim']['region']['id']}})<br />
+        Division: {{session.get('vatsim_data', None)['vatsim']['division']['name']}} ({{session.get('vatsim_data', None)['vatsim']['division']['id']}})<br />
+        {%if session.get('vatsim_data', None)['vatsim']['subdivision']['id'] != None%}
+            Division: {{session.get('vatsim_data', None)['vatsim']['subdivision']['name']}} ({{session.get('vatsim_data', None)['vatsim']['subdivision']['id']}})<br />
+        {%endif%}
+        <br />
+        <strong>Pilot Rating</strong><br />
+        Rating: {{session.get('vatsim_data', None)['vatsim']['pilotrating']['long']}} ({{session.get('vatsim_data', None)['vatsim']['pilotrating']['long']}})
+    </p>
+    <a href="/">Home</a>
+</body>
