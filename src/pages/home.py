@@ -10,9 +10,10 @@ def home():
     if vatsim_auth != None:
         data = api_req(vatsim_auth['access_token'])
         session['vatsim_data'] = data['data']
-        session['name'] = data['data']['personal']['name_full']
+        session['first_name'] = data['data']['personal']['name_first']
+        session['last_name'] = data['data']['personal']['name_last']
     try:
-        return render_template('home.html')
+        return render_template('index.html')
     except:
         abort(404)
 

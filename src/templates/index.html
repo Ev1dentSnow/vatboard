@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Liam P" />
+    <meta name="description" content="VATBoard, the go to place for all management on VATSIM">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Document title -->
+    <title>VATBoard</title>
+    <!-- Stylesheets & Fonts -->
+    <link href="{{url_for('static', filename='css/plugins.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Body Inner -->
+    <div class="body-inner">
+
+        <!-- Inspiro Slider -->
+        <div id="slider" class="inspiro-slider slider-fullscreen dots-creative" data-height-xs="360">
+
+            <!-- Slide 1 -->
+            <div class="slide kenburns" data-bg-image="{{url_for('static', filename='images/landing.png')}}">
+                <div class="bg-overlay"></div>
+                <div class="container">
+                    <div class="slide-captions text-center text-light">
+                        <!-- Captions -->
+                        {%if session.get('first_name', None) != None%}
+                            <span class="strong">VATBoard</span>
+                            <h2 class="text-dark text-lg">Hey {{session.get('first_name')}}!</h2>
+                            <div>
+                                <a class="btn btn-dark" href='/profile'>Profile</a>
+                                <!-- <a class="btn btn-dark">College</a> -->
+                                <a class="btn btn-dark" href='/logout'>Logout</a>
+                            </div>
+                        {%else%}
+                            <h2 class="text-dark text-lg">VATBoard</h2>
+                            <div>
+                                <a class="btn btn-dark" href='/login'>Login</a>
+                            </div>
+                        {%endif%}
+                        <!-- end: Captions -->
+                    </div>
+                </div>
+                <div class="scrolldown-animation" id="scroll-down">
+                    <a class="scroll-to" href="#easy-fast"><img src="images/scrolldown.png" alt="">
+                    </a>
+                </div>
+            </div>
+            <!-- end: Slide 1 -->
+
+        </div>
+        <!--end: Inspiro Slider -->
+
+        <!-- ABOUT ME -->
+        <section id="easy-fast" class="text-light p-b-40" style="background-color:#973735;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4" data-animate="fadeInUp" data-animate-delay="100">
+                        <div class="heading-text heading-section">
+                            <h1 class="text-medium">We Do Beautiful Websites!</h1>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4" data-animate="fadeInUp" data-animate-delay="300">The most happiest time of the
+                        day!. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi
+                        sapien ut justo. Nulla varius consequat magna, id molestie ipsum volutpat quis.
+                        <br>
+                        <br>Facilisis ut venenatis eu, sodales vel dolor. The most happiest time of the day!. Morbi
+                        sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo.
+                        Nulla varius.
+                    </div>
+
+                    <div class="col-lg-4" data-animate="fadeInUp" data-animate-delay="600">Pellentesque ipsum erat,
+                        facilisis ut venenatis eu, sodales vel dolor. The most happiest time of the day!. Morbi
+                        sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo.
+                        <br>
+                        <br>The most happiest time of the day!. Morbi sagittis, sem quis lacinia faucibus, orci ipsum
+                        gravida tortor, vel interdum mi sapien ut justo. Nulla varius consequat magna, id molestie ipsum
+                        volut.
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- end: ABOUT ME -->
+
+        <!-- PROCESS -->
+        <section class="box-fancy text-light" style="background-image:url(images/pattern-icons/5.png);">
+            <div class="bg-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 text-center" data-animate="fadeInUp" data-animate-delay="200">
+                        <h1 class="text-lg text-uppercase">01.</h1>
+                        <h3>CONCEPT</h3>
+                        <span>The most happiest time of the day!. Morbi sagittis, sem quis lacinia faucibus, orci ipsum
+                            gravida tortor, vel interdum mi sapien ut justo. Nulla varius consequat magna, id molestie
+                            ipsum volutpat quis. </span>
+                    </div>
+
+                    <div class="col-lg-4 text-center" data-animate="fadeInUp" data-animate-delay="400">
+                        <h1 class="text-lg text-uppercase">02.</h1>
+                        <h3>DEVELOPMENT</h3>
+                        <span>The most happiest time of the day!. Morbi sagittis, sem quis lacinia faucibus, orci ipsum
+                            gravida tortor, vel interdum mi sapien ut justo. Nulla varius consequat magna, id molestie
+                            ipsum volutpat quis.</span>
+                    </div>
+
+                    <div class="col-lg-4 text-center" data-animate="fadeInUp" data-animate-delay="600">
+                        <h1 class="text-lg text-uppercase">03.</h1>
+                        <h3>LAUNCH</h3>
+                        <span>The most happiest time of the day!. Morbi sagittis, sem quis lacinia faucibus, orci ipsum
+                            gravida tortor, vel interdum mi sapien ut justo. Nulla varius consequat magna, id molestie
+                            ipsum volutpat quis.</span>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+        <!-- end: PROCESS -->
+
+        <!-- PORTFOLIO -->
+        <section>
+            <div class="container">
+                <!-- Portfolio Filter -->
+                <nav class="grid-filter gf-outline" data-layout="#portfolio">
+                    <ul>
+                        <li class="active"><a href="#" data-category="*">Show All</a></li>
+                        <li><a href="#" data-category=".ct-branding">Branding</a></li>
+                        <li><a href="#" data-category=".ct-photography">Photography</a></li>
+                        <li><a href="#" data-category=".ct-marketing">Marketing</a></li>
+                        <li><a href="#" data-category=".ct-media">Media</a></li>
+                        <li><a href="#" data-category=".ct-webdesign">Web design</a></li>
+                    </ul>
+                    <div class="grid-active-title">Show All</div>
+                </nav>
+                <!-- end: Portfolio Filter -->
+
+                <!-- Portfolio -->
+                <div id="portfolio" class="grid-layout portfolio-4-columns" data-margin="0">
+
+
+                    <!-- portfolio item -->
+                    <div class="portfolio-item no-overlay ct-photography ct-media ct-branding ct-Media ct-webdesign">
+                        <div class="portfolio-item-wrap">
+                            <div class="portfolio-slider">
+                                <div class="carousel dots-inside dots-dark arrows-dark" data-items="1" data-loop="true"
+                                    data-autoplay="true" data-animate-in="fadeIn" data-animate-out="fadeOut"
+                                    data-autoplay="1500">
+                                    <a href="#"><img src="images/portfolio/64.jpg" alt=""></a>
+                                    <a href="#"><img src="images/portfolio/70.jpg" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end: portfolio item -->
+
+                    <!-- portfolio item -->
+                    <div class="portfolio-item img-zoom ct-photography ct-marketing ct-media">
+                        <div class="portfolio-item-wrap">
+                            <div class="portfolio-image">
+                                <a href="#"><img src="images/portfolio/60.jpg" alt=""></a>
+                            </div>
+                            <div class="portfolio-description">
+                                <a title="Paper Pouch!" data-lightbox="image" href="images/portfolio/83l.jpg"><i
+                                        class="fa fa-expand"></i></a>
+                                <a href="portfolio-page-grid-gallery.html"><i class="fa fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end: portfolio item -->
+
+
+                    <!-- portfolio item -->
+                    <div class="portfolio-item large-width  img-zoom ct-photography ct-media ct-branding ct-Media">
+                        <div class="portfolio-item-wrap">
+                            <div class="portfolio-image">
+                                <a href="#"><img src="images/portfolio/61.jpg" alt=""></a>
+                            </div>
+                            <div class="portfolio-description">
+                                <a href="portfolio-page-grid-gallery.html">
+                                    <h3>Let's Go Outside</h3>
+                                    <span>Illustrations / Graphics</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end: portfolio item -->
+                    <!-- portfolio item -->
+                    <div
+                        class="portfolio-item overlay-light img-zoom ct-photography ct-media ct-branding ct-Media ct-webdesign">
+                        <div class="portfolio-item-wrap">
+                            <div class="portfolio-slider">
+                                <div class="carousel dots-inside arrows-dark dots-dark" data-items="1" data-loop="true"
+                                    data-autoplay="true" data-autoplay="1800">
+                                    <a href="#"><img src="images/portfolio/22.jpg" alt=""></a>
+                                    <a href="#"><img src="images/portfolio/23.jpg" alt=""></a>
+                                    <a href="#"><img src="images/portfolio/24.jpg" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="portfolio-description">
+                                <a href="portfolio-page-grid-gallery.html">
+                                    <h3>Stockholm Fashion</h3>
+                                    <span>Illustrations / Graphics</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end: portfolio item -->
+
+
+                    <!-- portfolio item -->
+                    <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-marketing ct-webdesign">
+                        <div class="portfolio-item-wrap">
+                            <div class="portfolio-image">
+                                <a href="#"><img src="images/portfolio/65.jpg" alt=""></a>
+                            </div>
+
+                            <div class="portfolio-description" data-lightbox="gallery">
+                                <a title="Photoshop Mock-up!" data-lightbox="gallery-image"
+                                    href="images/portfolio/80l.jpg"><i class="fa fa-clone"></i></a>
+                                <a title="Paper Pouch!" data-lightbox="gallery-image" href="images/portfolio/81l.jpg"
+                                    class="hidden"></a>
+                                <a title="Mock-up" data-lightbox="gallery-image" href="images/portfolio/82l.jpg"
+                                    class="hidden"></a>
+                                <a href="portfolio-page-grid-gallery.html"><i class="fa fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end: portfolio item -->
+
+
+                    <!-- portfolio item -->
+                    <div class="portfolio-item img-zoom ct-marketing ct-media ct-branding ct-marketing ct-webdesign">
+                        <div class="portfolio-item-wrap">
+                            <div class="portfolio-image">
+                                <a href="#"><img src="images/portfolio/66.jpg" alt=""></a>
+                            </div>
+                            <div class="portfolio-description">
+                                <a href="portfolio-page-grid-gallery.html">
+                                    <h3>Last Iceland Sunshine</h3>
+                                    <span>Graphics</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end: portfolio item -->
+
+
+                    <!-- portfolio item -->
+                    <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-marketing ct-webdesign">
+                        <div class="portfolio-item-wrap">
+                            <div class="portfolio-image">
+                                <a href="#"><img src="images/portfolio/67.jpg" alt=""></a>
+                            </div>
+                            <div class="portfolio-description">
+                                <a title="Paper Pouch!" data-lightbox="iframe"
+                                    href="https://www.youtube.com/watch?v=k6Kly58LYzY"><i class="fa fa-play"></i></a>
+                                <a href="portfolio-page-grid-gallery.html"><i class="fa fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end: portfolio item -->
+
+
+                    <!-- portfolio item -->
+                    <div
+                        class="portfolio-item no-overlay ct-photography ct-media ct-branding ct-Media ct-marketing ct-webdesign">
+                        <div class="portfolio-item-wrap">
+                            <div class="portfolio-slider">
+                                <div class="carousel dots-inside dots-dark arrows-dark" data-items="1" data-loop="true"
+                                    data-autoplay="true" data-animate-in="fadeIn" data-animate-out="fadeOut"
+                                    data-autoplay="1500">
+                                    <a href="#"><img src="images/portfolio/68.jpg" alt=""></a>
+                                    <a href="#"><img src="images/portfolio/71.jpg" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end: portfolio item -->
+
+
+                    <!-- portfolio item -->
+                    <div class="portfolio-item img-zoom ct-photography ct-marketing ct-media">
+                        <div class="portfolio-item-wrap">
+                            <div class="portfolio-image">
+                                <a href="#"><img src="images/portfolio/69.jpg" alt=""></a>
+                            </div>
+                            <div class="portfolio-description">
+                                <a href="portfolio-page-grid-gallery.html">
+                                    <h3>Luxury Wine</h3>
+                                    <span>Graphics / Branding</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end: portfolio item -->
+
+                    <!-- portfolio item -->
+                    <div class="portfolio-item img-zoom ct-marketing ct-media ct-branding ct-marketing ct-webdesign">
+                        <div class="portfolio-item-wrap">
+                            <div class="portfolio-image">
+                                <a href="#"><img src="images/portfolio/70.jpg" alt=""></a>
+                            </div>
+                            <div class="portfolio-description">
+                                <a href="portfolio-page-grid-gallery.html">
+                                    <h3>Last Iceland Sunshine</h3>
+                                    <span>Graphics</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end: portfolio item -->
+
+
+                    <!-- portfolio item -->
+                    <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-marketing ct-webdesign">
+                        <div class="portfolio-item-wrap">
+                            <div class="portfolio-image">
+                                <a href="#"><img src="images/portfolio/72.jpg" alt=""></a>
+                            </div>
+                            <div class="portfolio-description">
+                                <a href="portfolio-page-grid-gallery.html">
+                                    <h3>Towel World</h3>
+                                    <span>Graphics</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end: portfolio item -->
+
+                    <!-- portfolio item -->
+                    <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-marketing ct-webdesign">
+                        <div class="portfolio-item-wrap">
+                            <div class="portfolio-image">
+                                <a href="#"><img src="images/portfolio/73.jpg" alt=""></a>
+                            </div>
+                            <div class="portfolio-description">
+                                <a href="portfolio-page-grid-gallery.html">
+                                    <h3>Towel World</h3>
+                                    <span>Graphics</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end: portfolio item -->
+
+
+                </div>
+                <!-- end: Portfolio -->
+            </div>
+        </section>
+        <!-- end: PORTFOLIO -->
+
+        <!-- LATEST WORK -->
+        <section class="p-t-150 background-grey p-b-150">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 m-b-30" data-animate="fadeInLeft">
+
+                        <div class="carousel" data-items="1">
+                            <a href="homepages/agency/images/latest-products/1.jpg" data-lightbox="gallery-image"
+                                title="Your image title here!"><img src="homepages/agency/images/latest-products/1.jpg"
+                                    alt=""></a>
+
+                            <a href="homepages/agency/images/latest-products/2.jpg" data-lightbox="gallery-image"
+                                title="Your image title here!"><img src="homepages/agency/images/latest-products/2.jpg"
+                                    alt=""></a>
+
+                            <a href="homepages/agency/images/latest-products/3.jpg" data-lightbox="gallery-image"
+                                title="Your image title here!"><img src="homepages/agency/images/latest-products/3.jpg"
+                                    alt=""></a>
+
+                        </div>
+
+                    </div>
+                    <div class="col-lg-5 p-l-40 p-r-40" data-animate="fadeInRight">
+                        <div class="m-b-40">
+                            <h2>LATEST WORK</h2>
+                            <p>The most happiest time of the day!. Morbi sagittis, sem quis lacinia faucibus, orci ipsum
+                                gravida tortor, vel interdum mi sapien ut justo.</p>
+
+                            <p> Nulla varius consequat magna, id molestie ipsum volutpat quis.</p>
+                        </div>
+                        <a class="btn" href="#"><span>Want to see more?</span></a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- LATEST WORK -->
+
+        <!-- SERVICES -->
+        <section class="text-light" style="background: transparent url(images/polygon/1.jpg);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="col-lg-4" data-animate="fadeIn">
+                            <div class="heading-text heading-section">
+                                <h1 class="text-medium">Best Services Around</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="row">
+                            <div class="col-lg-6" data-animate="flipInY" data-animate-delay="100">
+                                <div class="icon-box effect small clean">
+                                    <div class="icon">
+                                        <a href="#"><i class="fa fa-plug"></i></a>
+                                    </div>
+                                    <h3>Powerful template</h3>
+                                    <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Suspendisse condimentum
+                                        porttitor cursumus.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6" data-animate="flipInY" data-animate-delay="200">
+                                <div class="icon-box effect small clean">
+                                    <div class="icon">
+                                        <a href="#"><i class="fa fa-desktop"></i></a>
+                                    </div>
+                                    <h3>Flexible Layouts</h3>
+                                    <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Suspendisse condimentum
+                                        porttitor cursumus.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6" data-animate="flipInY" data-animate-delay="400">
+                                <div class="icon-box effect small clean">
+                                    <div class="icon">
+                                        <a href="#"><i class="fa fa-cloud"></i></a>
+                                    </div>
+                                    <h3>Retina Ready</h3>
+                                    <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Suspendisse condimentum
+                                        porttitor cursumus.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6" data-animate="flipInY" data-animate-delay="600">
+                                <div class="icon-box effect small clean">
+                                    <div class="icon">
+                                        <a href="#"><i class="far fa-lightbulb"></i></a>
+                                    </div>
+                                    <h3>Fast processing</h3>
+                                    <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Suspendisse condimentum
+                                        porttitor cursumus.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6" data-animate="flipInY" data-animate-delay="800">
+                                <div class="icon-box effect small clean">
+                                    <div class="icon">
+                                        <a href="#"><i class="fa fa-trophy"></i></a>
+                                    </div>
+                                    <h3>Unlimited Colors</h3>
+                                    <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Suspendisse condimentum
+                                        porttitor cursumus.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6" data-animate="flipInY" data-animate-delay="1000">
+                                <div class="icon-box effect small clean">
+                                    <div class="icon">
+                                        <a href="#"><i class="fa fa-thumbs-up"></i></a>
+                                    </div>
+                                    <h3>Premium Sliders</h3>
+                                    <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Suspendisse condimentum
+                                        porttitor cursumus.</p>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end: SERVICES -->
+
+        <!-- GET IN TOUCH -->
+        <section class="background-grey">
+            <div class="container">
+
+                <div class="text-center m-b-100">
+                    <h1 class="text-medium">Get in touch?</h1>
+                    <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Suspendisse condimentum porttitor cursumus.
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 center">
+                        <form class="widget-contact-form" novalidate action="include/contact-form.php" role="form"
+                            method="post">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="name">Name</label>
+                                    <input type="text" aria-required="true" name="widget-contact-form-name"
+                                        class="form-control required name" placeholder="Enter your Name">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="email">Email</label>
+                                    <input type="email" aria-required="true" required name="widget-contact-form-email"
+                                        class="form-control required email" placeholder="Enter your Email">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="subject">Phone</label>
+                                    <input type="text" name="widget-contact-form-phone" class="form-control"
+                                        placeholder="Enter your phone number">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="subject">Company</label>
+                                    <input type="text" name="widget-contact-form-company" class="form-control"
+                                        placeholder="Enter your Company name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea type="text" name="widget-contact-form-message" rows="8"
+                                    class="form-control required" placeholder="Enter your Message"></textarea>
+                            </div>
+                            <div class="row">
+                                <div class="form-group text-center">
+                                    <button class="btn center" type="submit" id="form-submit"><i
+                                            class="fa fa-paper-plane"></i>&nbsp;Send message</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end: GET IN TOUCH -->
+
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="footer-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="widget">
+
+                                <div class="widget-title">Polo HTML5 Template</div>
+                                <p class="mb-5">Built with love in Fort Worth, Texas, USA<br>
+                                    All rights reserved. Copyright © 2019. INSPIRO.</p>
+                                <a href="https://themeforest.net/item/polo-responsive-multipurpose-html5-template/13708923"
+                                    class="btn btn-inverted" target="_blank">Purchase Now</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="widget">
+                                        <div class="widget-title">Discover</div>
+                                        <ul class="list">
+                                            <li><a href="#">Features</a></li>
+                                            <li><a href="#">Layouts</a></li>
+                                            <li><a href="#">Corporate</a></li>
+                                            <li><a href="#">Updates</a></li>
+                                            <li><a href="#">Pricing</a></li>
+                                            <li><a href="#">Customers</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3">
+                                    <div class="widget">
+                                        <div class="widget-title">Features</div>
+                                        <ul class="list">
+                                            <li><a href="#">Layouts</a></li>
+                                            <li><a href="#">Headers</a></li>
+                                            <li><a href="#">Widgets</a></li>
+                                            <li><a href="#">Footers</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3">
+                                    <div class="widget">
+                                        <div class="widget-title">Pages</div>
+                                        <ul class="list">
+                                            <li><a href="#">Portfolio</a></li>
+                                            <li><a href="#">Blog</a></li>
+                                            <li><a href="#">Shop</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="widget">
+                                        <div class="widget-title">Support</div>
+                                        <ul class="list">
+                                            <li><a href="#">Help Desk</a></li>
+                                            <li><a href="#">Documentation</a></li>
+                                            <li><a href="#">Contact Us</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="copyright-content">
+                <div class="container">
+                    <div class="copyright-text text-center">&copy; 2019 POLO - Responsive Multi-Purpose HTML5 Template.
+                        All Rights Reserved.<a href="//www.inspiro-media.com" target="_blank" rel="noopener">
+                            INSPIRO</a> </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end: Footer -->
+
+    </div>
+    <!-- end: Body Inner -->
+
+    <!-- Scroll top -->
+    <a id="scrollTop"><i class="icon-chevron-up"></i><i class="icon-chevron-up"></i></a>
+    <!--Plugins-->
+    <script src="{{url_for('static', filename='js/jquery.js')}}"></script>
+    <script src="{{url_for('static', filename='js/plugins.js')}}"></script>
+
+    <!--Template functions-->
+    <script src="{{url_for('static', filename='js/functions.js')}}"></script>
+
+</body>
+
+</html>

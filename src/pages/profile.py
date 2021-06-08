@@ -4,6 +4,6 @@ page = Blueprint('profile', __name__, template_folder='../templates/')
 
 @page.route('/profile')
 def profile():
-    if session.get('name', None) == None:
+    if session.get('first_name', None) == None:
         return redirect('/')
     return render_template('profile.html')
