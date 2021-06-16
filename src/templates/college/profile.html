@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="page-body" style="padding-top: 1.2rem">
+    <div class="container-fluid">
+        <div class="page-title">
+            <div class="row">
+                <div class="col-6">
+                    <h3>Profile</h3>
+                </div>
+            </div>
+        </div>
+        <!-- Container-fluid starts                    -->
+        <div class="container-fluid">
+            <!-- Table Row Starts-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Personal Information</h5>
+                        </div>
+                        <div>
+                            <div class="card-block row">
+                                <div class="col-sm-12 col-lg-12 col-xl-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" style='width: 100%'>
+                                            <tbody>
+                                                <tr>
+                                                    <td style='width: 30%'>Name</td>
+                                                    <td>
+                                                        {{session.get('first_name')}} {{session.get('last_name')}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>CID</td>
+                                                    <td>
+                                                        {{session.get('cid')}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Email</td>
+                                                    <td>
+                                                        {{session.get('email')}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Home Country</td>
+                                                    <td>
+                                                        {{session.get('home_country')}}
+                                                        ({{session.get('home_country_id')}})
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>VATSIM Information</h5>
+                        </div>
+                        <div>
+                            <div class="card-block row">
+                                <div class="col-sm-12 col-lg-12 col-xl-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" style='width: 100%'>
+                                            <tbody>
+                                                <tr>
+                                                    <td style='width: 30%'>ATC Rating</td>
+                                                    <td>
+                                                        {{session.get('atc_rating_name')}}
+                                                        ({{session.get('atc_rating_id')}})
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Region</td>
+                                                    <td>
+                                                        {{session.get('region_name')}} ({{session.get('region_id')}})
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Division</td>
+                                                    <td>
+                                                        {{session.get('division_name')}}
+                                                        ({{session.get('division_id')}})
+                                                    </td>
+                                                </tr>
+                                                {%if session.get('vacc_name', None) != None%}
+                                                <tr>
+                                                    <td>vACC</td>
+                                                    <td>
+                                                        {{session.get('vacc_name')}}
+                                                        ({{session.get('vacc_id')}})
+                                                    </td>
+                                                </tr>
+                                                {%endif%}
+                                                <tr>
+                                                    <td>Pilot Rating</td>
+                                                    <td>
+                                                        {{session.get('pilot_rating_short')}} -
+                                                        {{session.get('pilot_rating_name')}}
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

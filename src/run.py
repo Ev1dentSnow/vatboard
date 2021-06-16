@@ -23,8 +23,9 @@ with app.app_context():
 
     # pages
     from pages.home import page as home
-    from pages.profile import page as profile
+    from pages.college.profile import page as profile
+    from pages.college.dashboard import page as dashboard
 
     app.register_blueprint(home)
     app.register_blueprint(profile)
-
+    app.register_blueprint(dashboard)

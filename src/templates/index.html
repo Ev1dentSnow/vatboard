@@ -28,19 +28,19 @@
                 <div class="container">
                     <div class="slide-captions text-center text-light">
                         <!-- Captions -->
-                        {%if session.get('first_name', None) != None%}
-                            <span class="strong">VATBoard</span>
-                            <h2 class="text-dark text-lg">Hey {{session.get('first_name')}}!</h2>
-                            <div>
-                                <a class="btn btn-dark" href='/profile'>Profile</a>
-                                <!-- <a class="btn btn-dark">College</a> -->
-                                <a class="btn btn-dark" href='/logout'>Logout</a>
-                            </div>
+                        {%if session.get('auth_token', None) != None%}
+                        <span class="strong">VATBoard</span>
+                        <h2 class="text-dark text-lg">Hey {{session.get('first_name')}}!</h2>
+                        <div>
+                            <a class="btn btn-dark" href='/college/dashboard'>College</a>
+                            <!-- <a class="btn btn-dark">College</a> -->
+                            <a class="btn btn-dark" href='/logout'>Logout</a>
+                        </div>
                         {%else%}
-                            <h2 class="text-dark text-lg">VATBoard</h2>
-                            <div>
-                                <a class="btn btn-dark" href='/login'>Login</a>
-                            </div>
+                        <h2 class="text-dark text-lg">VATBoard</h2>
+                        <div>
+                            <a class="btn btn-dark" href='/login'>Login</a>
+                        </div>
                         {%endif%}
                         <!-- end: Captions -->
                     </div>
