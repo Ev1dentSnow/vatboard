@@ -1,6 +1,6 @@
-# VATSIM SSO in Python using Flask
+# VATBoard
 
-This is an implementation of VATSIM's SSO client in Python.
+A hub for managing members of a vACC or Division on the VATSIM Network.
 
 ## Requirements
 
