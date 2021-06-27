@@ -23,6 +23,8 @@ More on Redis can be found on the [docker page](https://hub.docker.com/_/redis).
 To run, move into the `src` directory and run `export FLASK_APP=run.py` for Bash or `set FLASK_APP=run.py` for Windows.
 Next run `flask run` and the app will start on port 5000.
 
+## Deployment
+
 Flask's built in WSGI is not suitable for production as it doesn’t scale well. 
 
 A good production ready WSGI is gunicorn, available here: https://gunicorn.org
